@@ -1,0 +1,49 @@
+/* Custom styles for Bonita VitePress site */
+
+:root {
+  --vp-c-brand: #3a70ff;
+  --vp-c-brand-light: #5c8aff;
+  --vp-c-brand-lighter: #7fa0ff;
+  --vp-c-brand-dark: #1f56e5;
+  --vp-c-brand-darker: #103fc0;
+}
+
+/* Dark mode overrides */
+.dark {
+  --vp-c-brand: #5c8aff;
+  --vp-c-brand-light: #7fa0ff;
+  --vp-c-brand-lighter: #a3beff;
+  --vp-c-brand-dark: #3a70ff;
+  --vp-c-brand-darker: #1f56e5;
+}
+
+/* Custom components */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+/* Logo animation */
+.VPNavBarTitle .title {
+  transition: color 0.25s;
+}
+
+.VPNavBarTitle:hover .title {
+  color: var(--vp-c-brand);
+}
+
+/* Custom container styles */
+.custom-block.tip {
+  border-color: var(--vp-c-brand);
+}
+
+/* Home page custom styles */
+.VPHero .image {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.VPHero .image:hover {
+  transform: translateY(-5px);
+} 
