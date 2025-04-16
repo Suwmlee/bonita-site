@@ -16,21 +16,38 @@ Bonita 提供多种下载和安装方式，您可以根据自己的需求选择�
 
 <div class="download-options">
   <div class="download-option">
-    <img src="/images/windows-logo.png" alt="Windows Logo" class="os-logo">
+    <div class="os-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+        <line x1="8" y1="21" x2="16" y2="21"></line>
+        <line x1="12" y1="17" x2="12" y2="21"></line>
+      </svg>
+    </div>
     <h3>Windows</h3>
     <a href="https://github.com/Suwmlee/bonita/releases/latest/download/bonita-windows-x64.zip" class="download-button">下载 Windows 版本</a>
     <p>适用于 Windows 7, 8, 10 和 11</p>
   </div>
   
   <div class="download-option">
-    <img src="/images/macos-logo.png" alt="macOS Logo" class="os-logo">
+    <div class="os-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9c0-4.97-4.03-9-9-9z"></path>
+        <path d="M8 16a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H8z"></path>
+      </svg>
+    </div>
     <h3>macOS</h3>
     <a href="https://github.com/Suwmlee/bonita/releases/latest/download/bonita-macos.dmg" class="download-button">下载 macOS 版本</a>
     <p>适用于 macOS 10.12 及以上版本</p>
   </div>
   
   <div class="download-option">
-    <img src="/images/linux-logo.png" alt="Linux Logo" class="os-logo">
+    <div class="os-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 16l-4-4-4 4"></path>
+        <path d="M12 12v8"></path>
+        <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+      </svg>
+    </div>
     <h3>Linux</h3>
     <a href="https://github.com/Suwmlee/bonita/releases/latest/download/bonita-linux-x64.tar.gz" class="download-button">下载 Linux 版本</a>
     <p>适用于大多数 Linux 发行版</p>
@@ -161,7 +178,8 @@ pip install bonita-video-manager
 .os-logo {
   width: 64px;
   height: 64px;
-  margin-bottom: 15px;
+  margin: 0 auto 15px;
+  color: var(--vp-c-brand);
 }
 
 .download-button {

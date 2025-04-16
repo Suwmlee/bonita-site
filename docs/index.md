@@ -5,7 +5,7 @@ hero:
   text: "视频管理器"
   tagline: "简单、高效的视频管理解决方案"
   image:
-    src: /logo.png
+    src: /logo.svg
     alt: Bonita Logo
   actions:
     - theme: brand
