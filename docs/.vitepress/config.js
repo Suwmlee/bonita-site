@@ -115,7 +115,7 @@ export default defineConfig({
   description: 'Bonita - 一个开源的视频管理器',
   
   // GitHub Page 支持
-  base: '/bonita-site/',
+  base: '/',
 
   // 主题设置
   themeConfig: {
