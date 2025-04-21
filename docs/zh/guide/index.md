@@ -2,90 +2,49 @@
 
 本指南将帮助你快速安装和配置 Bonita，开始管理你的视频文件。
 
-## 系统要求
-
-- 操作系统：Windows 7+，macOS 10.12+，或 Linux
-- Python 3.7 或更高版本
-- 至少 4GB RAM
-- 足够存储视频文件的硬盘空间
-
 ## 安装方法
 
-### 方法一：使用 pip 安装（推荐）
+### 方法一：使用docker安装
 
 ```bash
-# 创建虚拟环境（推荐）
-python -m venv bonita-env
-source bonita-env/bin/activate  # Linux/macOS
-# 或
-bonita-env\Scripts\activate.bat  # Windows
+# 拉取镜像
+docker pull suwmlee/bonita:latest
 
-# 安装 Bonita
-pip install bonita-video-manager
+# 使用SQLite作为broker
+# 指定管理员账户和密码
+docker run -d \
+    --name bonita \
+    # 指定管理员账户和密码，仅在初次有效
+    -e FIRST_SUPERUSER_EMAIL="admin@example.com" \  
+    -e FIRST_SUPERUSER_PASSWORD="12345678" \
+    -p 12346:12346 \
+    -v <path/to/media>:/media \
+    -V <path/to/data>:/app/backend/data \
+    suwmlee/bonita:latest
+
+# 可选：使用外部Redis作为broker
+# 未指定管理员账户和密码
+docker run -d \
+    --name bonita \
+    -p 12346:80 \
+    -e CELERY_BROKER_URL="redis://host.docker.internal:6379/0" \
+    -e CELERY_RESULT_BACKEND="redis://host.docker.internal:6379/0" \
+    -v <path/to/media>:/media \
+    -V <path/to/data>:/app/backend/data \
+    suwmlee/bonita:latest
 ```
-
-### 方法二：从源代码安装
-
-```bash
-# 克隆仓库
-git clone https://github.com/Suwmlee/bonita.git
-cd bonita
-
-# 创建虚拟环境（推荐）
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-# 或
-venv\Scripts\activate.bat  # Windows
-
-# 安装依赖
-pip install -r requirements.txt
-
-# 安装 Bonita
-pip install -e .
-```
-
-## 初始配置
-
-安装完成后，你需要进行初始配置：
-
-1. 运行 Bonita 初始化命令：
-
-```bash
-bonita --init
-```
-
-2. 按照提示配置以下基本设置：
-   - 视频文件存储位置
-   - 元数据存储数据库路径
-   - Web 界面访问端口（默认为 8888）
-
-3. 完成初始配置后，配置文件将保存在：
-   - Windows: `C:\Users\<用户名>\AppData\Local\bonita\config.json`
-   - macOS/Linux: `~/.config/bonita/config.json`
 
 ## 启动 Bonita
 
-配置完成后，使用以下命令启动 Bonita：
+docker启动成功后，如果部署设备的IP地址为：`192.168.1.100`，可以通过浏览器访问：`http://192.168.1.100:12346` 进入 Bonita 的 Web 界面。
 
-```bash
-bonita --start
-```
+## 常见问题
 
-启动成功后，可以通过浏览器访问：`http://localhost:8888` 进入 Bonita 的 Web 界面。
+### docker重新部署时，提示账户和密码错误
 
-## 添加视频库
-
-启动 Bonita 后，你需要添加视频库才能开始管理视频：
-
-1. 在 Web 界面中，点击左侧菜单的"库管理"
-2. 点击"添加新库"按钮
-3. 填写以下信息：
-   - 库名称：为视频库取一个名称
-   - 库路径：视频文件所在的文件夹路径
-   - 库类型：选择视频类型（电影、剧集等）
-4. 点击"保存"按钮
-
-添加库后，Bonita 将开始扫描该目录下的视频文件，并提取元数据。扫描时间取决于视频库的大小。
+docker部署如果指定管理员账户和密码，在初次创建数据库时有效，一旦生成对应的数据库，则后续只能通过web界面更改。
+如果需要重新部署更改，需要删除对应的数据库，会导致其他配置丢失，请慎重！
+sqlite文件默认在data目录，先删除 `db.sqlite3`再重新部署
 
 ## 下一步
 
