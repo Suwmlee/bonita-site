@@ -1,8 +1,12 @@
 ---
 layout: home
+title: Bonita
+head:
+  - - meta
+    - http-equiv: refresh
+      content: "0;url=/zh/"
 ---
 
-<script>
-  // Redirect to Chinese version
-  window.location.href = '/zh/';
-</script>
+# 重定向
+
+如果页面没有自动跳转，请点击[这里](/zh/)前往中文版本。
