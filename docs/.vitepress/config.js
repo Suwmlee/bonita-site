@@ -39,7 +39,7 @@ const zhConfig = {
 
     footer: {
       message: '基于 MIT 协议发布',
-      copyright: 'Copyright © 2023 Bonita'
+      copyright: 'Copyright © 2025 Bonita'
     }
   }
 }
@@ -108,6 +108,11 @@ export default defineConfig({
 
   // GitHub Page 支持
   base: '/',
+
+  // 网页头部配置，添加favicon
+  head: [
+    ['link', { rel: 'icon', href: '/logo.png' }]
+  ],
 
   // 主题设置
   themeConfig: {
