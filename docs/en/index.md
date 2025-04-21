@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /en/guide/getting-started
+      link: /en/guide/index
     - theme: alt
       text: Features
       link: /en/guide/features

@@ -1,40 +1,53 @@
-# Introduction to Bonita
+# Quick Start
 
-Bonita is an open-source software designed specifically for video management, offering powerful features to help users organize, manage, and find video files.
+This guide will help you quickly install and configure Bonita to start managing your video files.
 
-## Project Background
+## Installation Methods
 
-With the explosive growth of digital content, managing an increasing number of video files has become more challenging. The Bonita project was born to provide a simple yet powerful solution to help users efficiently manage their video libraries.
+### Method 1: Install using Docker
 
-## Core Philosophy
+```bash
+# Pull the image
+docker pull suwmlee/bonita:latest
 
-Bonita's design follows these core principles:
+# Using SQLite as broker
+# Specify admin account and password
+docker run -d \
+    --name bonita \
+    # Specify admin account and password, only effective on first run
+    -e FIRST_SUPERUSER_EMAIL="admin@example.com" \  
+    -e FIRST_SUPERUSER_PASSWORD="12345678" \
+    -p 12346:12346 \
+    -v <path/to/media>:/media \
+    -V <path/to/data>:/app/backend/data \
+    suwmlee/bonita:latest
 
-- **Simplicity** - Provide a simple and intuitive user interface, lowering the learning curve
-- **Flexibility** - Adapt to different users' various needs and use cases
-- **Efficiency** - Improve management efficiency through automated features, reducing manual operations
-- **Openness** - Open-source design allows users and developers to freely customize and extend functionality
+# Optional: Using external Redis as broker
+# Admin account and password not specified
+docker run -d \
+    --name bonita \
+    -p 12346:80 \
+    -e CELERY_BROKER_URL="redis://host.docker.internal:6379/0" \
+    -e CELERY_RESULT_BACKEND="redis://host.docker.internal:6379/0" \
+    -v <path/to/media>:/media \
+    -V <path/to/data>:/app/backend/data \
+    suwmlee/bonita:latest
+```
 
-## Technical Architecture
+## Starting Bonita
 
-Bonita employs a modern technical architecture, primarily including:
+After successful Docker deployment, if your device's IP address is: `192.168.1.100`, you can access the Bonita web interface through your browser at: `http://192.168.1.100:12346`.
 
-- Backend developed with Python, providing powerful data processing capabilities
-- Clean and feature-rich web interface
-- Efficient database design, ensuring good performance even in large media libraries
-- Support for various operating systems, including Windows, macOS, and Linux
+## Common Issues
 
-## Why Choose Bonita?
+### Account and password error when redeploying Docker
 
-Compared to other video management solutions, Bonita offers the following advantages:
+When deploying with Docker, if you specify an admin account and password, it is only effective when creating the database for the first time. Once the database is generated, subsequent changes can only be made through the web interface.
+If you need to redeploy with changes, you'll need to delete the corresponding database, which will result in the loss of other configurations, so please be cautious!
+The SQLite file is in the data directory by default. Delete `db.sqlite3` first and then redeploy.
 
-1. **Completely Open Source** - No fees required, and can be customized according to individual needs
-2. **Focus on Video** - Specifically designed for video management, offering special features for videos
-3. **Lightweight** - Low resource usage, can run smoothly on various hardware
-4. **Active Development** - Continuous updates and improvements, timely fixes for issues and addition of new features
+## Next Steps
 
-## Getting Started
-
-If you want to start using Bonita, check out the [Getting Started](./getting-started.md) guide to learn how to install and configure Bonita.
-
-If you want to learn about Bonita's detailed features, please refer to the [Features](./features.md) page. 
+- Check [Basic Configuration](./config.md) to learn how to customize Bonita
+- Check [Main Features](./features.md) to learn more about Bonita's functionality
+- If you encounter any issues, please check [GitHub Issues](https://github.com/Suwmlee/bonita/issues) for help 

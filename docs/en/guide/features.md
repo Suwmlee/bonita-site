@@ -1,108 +1,70 @@
-# Bonita Features
+# Main Features
 
-Bonita offers a comprehensive set of features designed specifically for video management. This page outlines the key capabilities of the platform.
+Bonita provides a series of powerful features to help you effectively manage video files. Here is an overview of Bonita's main features:
 
-## Library Management
+## Video Management
 
-### Multi-Library Support
-- Manage multiple video libraries from a single interface
-- Set different scanning and organization rules for each library
-- Separate personal, work, or specific collection videos
+### Smart Scanning and Metadata Extraction
 
-### Automated Scanning
-- Automatic detection of new, modified, or deleted videos
-- Scheduled scanning at specified intervals
-- Real-time monitoring option for instant updates
+- **Automatic Scanning** - Automatically identify and scan video files in specified directories
+- **Metadata Extraction** - Intelligently extract video metadata from filenames and content
+- **External Data Source Integration** - Support for retrieving rich video information from external sources like TMDB, IMDB, etc.
+- **Batch Processing** - Process multiple video files simultaneously for improved efficiency
 
-## Metadata Management
+### Video Organization
 
-### Automatic Metadata Extraction
-- Extract metadata from video files including:
-  - Resolution, codec, bitrate, and duration
-  - Creation and modification dates
-  - Embedded title, description, and tags
-- Thumbnail generation with customizable settings
+- **Smart Classification** - Automatically classify videos by type, genre, year, etc.
+- **Tag System** - Support for custom tags for personalized video organization
+- **Favorites Function** - Easily collect and manage favorite videos
+- **Playlists** - Create and manage custom playlists
 
-### Manual Metadata Editing
-- Edit any metadata field directly
-- Batch editing for multiple videos
-- Custom metadata fields for specialized needs
+## User Interface
 
-### Tagging System
-- Hierarchical tag organization
-- Tag suggestions based on content
-- Batch tagging options
+### Intuitive Video Browsing
 
-## Search and Discovery
+- **Grid View** - Display video library as thumbnail grids
+- **List View** - View video information in detailed lists
+- **Cover Wall** - Browse videos in an elegant cover wall format
+- **Filtering and Sorting** - Various filtering and sorting options to quickly locate videos
 
-### Advanced Search
-- Full-text search across all metadata
-- Filter by any combination of attributes
-- Save and reuse search queries
+### Search Functionality
 
-### Smart Collections
-- Dynamic collections based on search criteria
-- Automatically updated as new content is added
-- Customizable organization of collections
-
-### Visual Browsing
-- Grid and list view options
-- Thumbnail previews with hover playback
-- Sortable by any metadata field
-
-## Playback Features
-
-### Integrated Video Player
-- Play videos directly in the browser
-- Support for various formats through transcoding
-- Playback position memory
-
-### Playlist Management
-- Create and save playlists
-- Smart playlists based on rules
-- Random and shuffle playback options
-
-## Integration Capabilities
-
-### External Tool Integration
-- Connect with video editing software
-- Integration with media servers
-- API for custom integrations
-
-### Import/Export
-- Import metadata from other applications
-- Export library data in various formats
-- Backup and restore functionality
-
-## User Management
-
-### Multiple User Accounts
-- User-specific views and preferences
-- Permission-based access control
-- Activity logging
-
-### Sharing Options
-- Share collections with other users
-- Public/private library settings
-- Temporary access links
+- **Full-text Search** - Search video titles, descriptions, and other metadata
+- **Advanced Search** - Support for complex search condition combinations
+- **Search Suggestions** - Intelligent search suggestions to improve search efficiency
 
 ## Advanced Features
 
-### Duplicate Detection
-- Find and manage duplicate videos
-- Compare by content, not just filename
-- Visual comparison tools
+### Automated Workflows
 
-### Statistics and Reports
-- Library composition analytics
-- Usage statistics
-- Storage management reports
+- **File Monitoring** - Monitor folder changes, automatically process newly added videos
+- **Scheduled Tasks** - Set up scheduled tasks to automatically perform various maintenance operations
+- **Custom Scripts** - Support for user-defined scripts to extend functionality
 
-### Customizable UI
-- Theme options including dark mode
-- Adjustable layout and density
-- Keyboard shortcuts for power users
+### Data Management
 
-## Getting Started
+- **Data Backup and Recovery** - Simple data backup and recovery functionality
+- **Metadata Editing** - Manually edit and correct video metadata
+- **Data Import/Export** - Support for metadata import and export
 
-Check out the [Getting Started Guide](./getting-started.md) to begin using these features. 
+## System Integration
+
+### Third-party Application Support
+
+- **Media Server Integration** - Integration with media servers like Plex, Emby, Jellyfin, etc.
+
+## Customization and Extension
+
+- **Custom Metadata Fields** - Add and manage custom metadata fields
+
+## Performance and Reliability
+
+- **Efficient Indexing** - Efficient data indexing ensures fast searching and browsing
+- **Low Resource Usage** - Optimized resource usage, suitable for various hardware configurations
+- **Stability Guarantee** - Stable and reliable performance
+
+## Next Steps
+
+- Check [Basic Configuration](./config.md) to learn how to customize Bonita
+- Check [Advanced Configuration](./advanced-config.md) to learn more about advanced configuration options
+- Return to [Quick Start](./index.md) to learn about installation and initial setup 

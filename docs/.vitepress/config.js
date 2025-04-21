@@ -51,7 +51,7 @@ const enConfig = {
     nav: [
       { text: 'Home', link: '/en/' },
       { text: 'Guide', link: '/en/guide/' },
-      { text: 'Config', link: '/en/config/' },
+      { text: 'Config', link: '/en/guide/config' },
       { text: 'Download', link: '/en/download/' },
       {
         text: 'Links',
@@ -66,18 +66,10 @@ const enConfig = {
         {
           text: 'Guide',
           items: [
-            { text: 'Introduction', link: '/en/guide/' },
-            { text: 'Getting Started', link: '/en/guide/getting-started' },
-            { text: 'Features', link: '/en/guide/features' },
-          ]
-        }
-      ],
-      '/en/config/': [
-        {
-          text: 'Config',
-          items: [
-            { text: 'Basic Config', link: '/en/config/' },
-            { text: 'Advanced Config', link: '/en/config/advanced' },
+            { text: 'Quick Start', link: '/en/guide/' },
+            { text: 'Main Features', link: '/en/guide/features' },
+            { text: 'Basic Configuration', link: '/en/guide/config' },
+            { text: 'Advanced Configuration', link: '/en/guide/advanced-config' }
           ]
         }
       ]
