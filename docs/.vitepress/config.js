@@ -90,8 +90,16 @@ const enConfig = {
 export default defineConfig({
   // 多语言设置
   locales: {
-    root: { label: '中文', ...zhConfig },
-    en: enConfig
+    root: {
+      label: '中文',
+      lang: 'zh-CN',
+      link: '/zh/',
+      ...zhConfig
+    },
+    en: {
+      ...enConfig,
+      path: 'en'
+    }
   },
 
   // 基本设置
