@@ -2,15 +2,15 @@
 layout: home
 hero:
   name: "Bonita"
-  text: "视频管理器"
-  tagline: "简单、高效的视频管理解决方案"
+  text: "私人媒体服务助手"
+  tagline: "简单、高效的媒体服务管理解决方案"
   image:
-    src: /logo.svg
+    src: /logo.png
     alt: Bonita Logo
   actions:
     - theme: brand
       text: 快速开始
-      link: /zh/guide/getting-started
+      link: /zh/guide/
     - theme: alt
       text: 功能介绍
       link: /zh/guide/features

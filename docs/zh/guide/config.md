@@ -129,5 +129,5 @@ bonita --generate-config > config.json
 
 ## 下一步
 
-- 查看[高级配置](./advanced.md)了解更多高级配置选项
-- 返回[指南](../guide/)了解 Bonita 的基本使用方法 
+- 查看[高级配置](./advanced-config.md)了解更多高级配置选项
+- 返回[主要功能](./features.md)了解 Bonita 的基本功能 

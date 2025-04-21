@@ -1,40 +1,94 @@
-# Bonita 介绍
+# 快速开始
 
-Bonita 是一款专为视频管理而设计的开源软件，它提供了强大的功能来帮助用户组织、管理和查找视频文件。
+本指南将帮助你快速安装和配置 Bonita，开始管理你的视频文件。
 
-## 项目背景
+## 系统要求
 
-随着数字内容的爆炸式增长，管理日益增多的视频文件变得越来越具有挑战性。Bonita 项目应运而生，旨在提供一个简单而强大的解决方案，帮助用户高效地管理他们的视频库。
+- 操作系统：Windows 7+，macOS 10.12+，或 Linux
+- Python 3.7 或更高版本
+- 至少 4GB RAM
+- 足够存储视频文件的硬盘空间
 
-## 核心理念
+## 安装方法
 
-Bonita 的设计遵循以下核心理念：
+### 方法一：使用 pip 安装（推荐）
 
-- **简洁性** - 提供简单直观的用户界面，降低学习门槛
-- **灵活性** - 适应不同用户的各种需求和使用场景
-- **效率** - 通过自动化功能减少手动操作，提高管理效率
-- **开放性** - 开源设计允许用户和开发者自由地定制和扩展功能
+```bash
+# 创建虚拟环境（推荐）
+python -m venv bonita-env
+source bonita-env/bin/activate  # Linux/macOS
+# 或
+bonita-env\Scripts\activate.bat  # Windows
 
-## 技术架构
+# 安装 Bonita
+pip install bonita-video-manager
+```
 
-Bonita 采用现代化的技术架构，主要包括：
+### 方法二：从源代码安装
 
-- 后端使用 Python 开发，提供强大的数据处理能力
-- 简洁而功能强大的 Web 界面
-- 高效的数据库设计，确保即使在大型媒体库中也能保持良好性能
-- 支持各种操作系统，包括 Windows、macOS 和 Linux
+```bash
+# 克隆仓库
+git clone https://github.com/Suwmlee/bonita.git
+cd bonita
 
-## 为什么选择 Bonita？
+# 创建虚拟环境（推荐）
+python -m venv venv
+source venv/bin/activate  # Linux/macOS
+# 或
+venv\Scripts\activate.bat  # Windows
 
-与其他视频管理解决方案相比，Bonita 具有以下优势：
+# 安装依赖
+pip install -r requirements.txt
 
-1. **完全开源** - 无需付费，且可以根据个人需求进行定制
-2. **专注于视频** - 专门为视频管理设计，提供针对视频的特殊功能
-3. **轻量级** - 资源占用少，可以在各种硬件上流畅运行
-4. **活跃开发** - 持续更新和改进，及时修复问题和增加新功能
+# 安装 Bonita
+pip install -e .
+```
 
-## 开始使用
+## 初始配置
 
-如果你想开始使用 Bonita，请查看[快速开始](./getting-started.md)指南，了解如何安装和配置 Bonita。
+安装完成后，你需要进行初始配置：
 
-如果你想了解 Bonita 的详细功能，请参阅[主要功能](./features.md)页面。 
+1. 运行 Bonita 初始化命令：
+
+```bash
+bonita --init
+```
+
+2. 按照提示配置以下基本设置：
+   - 视频文件存储位置
+   - 元数据存储数据库路径
+   - Web 界面访问端口（默认为 8888）
+
+3. 完成初始配置后，配置文件将保存在：
+   - Windows: `C:\Users\<用户名>\AppData\Local\bonita\config.json`
+   - macOS/Linux: `~/.config/bonita/config.json`
+
+## 启动 Bonita
+
+配置完成后，使用以下命令启动 Bonita：
+
+```bash
+bonita --start
+```
+
+启动成功后，可以通过浏览器访问：`http://localhost:8888` 进入 Bonita 的 Web 界面。
+
+## 添加视频库
+
+启动 Bonita 后，你需要添加视频库才能开始管理视频：
+
+1. 在 Web 界面中，点击左侧菜单的"库管理"
+2. 点击"添加新库"按钮
+3. 填写以下信息：
+   - 库名称：为视频库取一个名称
+   - 库路径：视频文件所在的文件夹路径
+   - 库类型：选择视频类型（电影、剧集等）
+4. 点击"保存"按钮
+
+添加库后，Bonita 将开始扫描该目录下的视频文件，并提取元数据。扫描时间取决于视频库的大小。
+
+## 下一步
+
+- 查看[基本配置](./config.md)了解如何自定义 Bonita
+- 查看[主要功能](./features.md)了解 Bonita 的更多功能
+- 如果你遇到任何问题，请查看[GitHub Issues](https://github.com/Suwmlee/bonita/issues)寻求帮助 

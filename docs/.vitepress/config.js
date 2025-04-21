@@ -6,11 +6,11 @@ const zhConfig = {
   lang: 'zh-CN',
   themeConfig: {
     nav: [
-      { text: '首页', link: '/zh/' },
+      { text: '首页', link: '/' },
       { text: '指南', link: '/zh/guide/' },
-      { text: '配置', link: '/zh/config/' },
+      { text: '配置', link: '/zh/guide/config' },
       { text: '下载', link: '/zh/download/' },
-      { 
+      {
         text: '链接',
         items: [
           { text: 'GitHub', link: 'https://github.com/Suwmlee/bonita' },
@@ -23,23 +23,15 @@ const zhConfig = {
         {
           text: '指南',
           items: [
-            { text: '介绍', link: '/zh/guide/' },
-            { text: '快速开始', link: '/zh/guide/getting-started' },
+            { text: '快速开始', link: '/zh/guide/' },
             { text: '主要功能', link: '/zh/guide/features' },
-          ]
-        }
-      ],
-      '/zh/config/': [
-        {
-          text: '配置',
-          items: [
-            { text: '基本配置', link: '/zh/config/' },
-            { text: '高级配置', link: '/zh/config/advanced' },
+            { text: '基本配置', link: '/zh/guide/config' },
+            { text: '高级配置', link: '/zh/guide/advanced-config' }
           ]
         }
       ]
     },
-    
+
     editLink: {
       pattern: 'https://github.com/Suwmlee/bonita-site/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页'
@@ -61,7 +53,7 @@ const enConfig = {
       { text: 'Guide', link: '/en/guide/' },
       { text: 'Config', link: '/en/config/' },
       { text: 'Download', link: '/en/download/' },
-      { 
+      {
         text: 'Links',
         items: [
           { text: 'GitHub', link: 'https://github.com/Suwmlee/bonita' },
@@ -90,7 +82,7 @@ const enConfig = {
         }
       ]
     },
-    
+
     editLink: {
       pattern: 'https://github.com/Suwmlee/bonita-site/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
@@ -113,14 +105,14 @@ export default defineConfig({
   // 基本设置
   title: 'Bonita',
   description: 'Bonita - 一个开源的视频管理器',
-  
+
   // GitHub Page 支持
   base: '/',
 
   // 主题设置
   themeConfig: {
-    logo: '/logo.svg',
-    
+    logo: '/logo.png',
+
     // 社交链接
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Suwmlee/bonita' }
@@ -137,12 +129,12 @@ export default defineConfig({
     // 默认语言使用根语言（中文）配置
     ...zhConfig.themeConfig
   },
-  
+
   // Markdown配置
   markdown: {
     lineNumbers: true,
   },
-  
+
   // 构建配置
   buildEnd: async (siteConfig) => {
     // 构建完成后的钩子

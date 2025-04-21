@@ -5,7 +5,7 @@ hero:
   text: "Video Manager"
   tagline: "Simple and efficient video management solution"
   image:
-    src: /logo.svg
+    src: /logo.png
     alt: Bonita Logo
   actions:
     - theme: brand
