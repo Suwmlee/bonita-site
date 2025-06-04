@@ -12,7 +12,7 @@
 docker pull suwmlee/bonita:latest
 
 # 基本运行
-docker run -d -p 12346:12346 bonita:latest
+docker run -d -p 12346:12346 suwmlee/bonita:latest
 ```
 
 #### 完整配置运行
