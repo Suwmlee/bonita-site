@@ -101,7 +101,7 @@ docker exec bonita /command/s6-rc -a list
 
 # 重启特定服务
 docker exec bonita /command/s6-rc -d change bonita
-docker exec bonita/command/s6-rc -u change bonita
+docker exec bonita /command/s6-rc -u change bonita
 
 # 停止/启动服务
 docker exec bonita /command/s6-rc -d change celery
