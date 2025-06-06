@@ -24,11 +24,11 @@ docker run -d \
     -e PUID=0 \
     -e PGID=0 \
     -e FIRST_SUPERUSER_EMAIL="admin@example.com" \
-    -e FIRST_SUPERUSER_PASSWORD="12345678" \
+    -e FIRST_SUPERUSER_PASSWORD="changepwd" \
     -e MAX_CONCURRENCY=5 \
     -e TZ=Asia/Shanghai \
     -v <path/to/media>:/media \
-    -v <path/to/data>:/app/data \
+    -v <path/to/data>:/app/backend/data \
     suwmlee/bonita:latest
 
 # 可选：使用外部Redis作为broker
@@ -41,7 +41,7 @@ docker run -d \
     -e CELERY_RESULT_BACKEND="redis://host.docker.internal:6379/0" \
     -e MAX_CONCURRENCY=5 \
     -v <path/to/media>:/media \
-    -v <path/to/data>:/app/data \
+    -v <path/to/data>:/app/backend/data \
     suwmlee/bonita:latest
 ```
 
@@ -61,9 +61,9 @@ services:
       - MAX_CONCURRENCY=5
       - TZ=Asia/Shanghai
       - FIRST_SUPERUSER_EMAIL=admin@example.com
-      - FIRST_SUPERUSER_PASSWORD=12345678
+      - FIRST_SUPERUSER_PASSWORD=changepwd
     volumes:
-      - ./data:/app/data
+      - ./data:/app/backend/data
       - ./media:/media
     restart: unless-stopped
 ```
