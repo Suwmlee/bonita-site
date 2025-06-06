@@ -83,8 +83,8 @@ docker-compose up -d
 | `TZ`                       | Asia/Shanghai | 时区设置                           |
 | `FIRST_SUPERUSER_EMAIL`    | -             | 初始管理员邮箱（仅初次创建时有效） |
 | `FIRST_SUPERUSER_PASSWORD` | -             | 初始管理员密码（仅初次创建时有效） |
-| `CELERY_BROKER_URL`        | -             | 外部Redis broker地址（可选）       |
-| `CELERY_RESULT_BACKEND`    | -             | 外部Redis结果存储地址（可选）      |
+| `CELERY_BROKER_URL`        | -             | Celery外部broker地址（可选）       |
+| `CELERY_RESULT_BACKEND`    | -             | Celery外部结果存储地址（可选）     |
 
 ## 启动 Bonita
 
@@ -97,15 +97,15 @@ Docker启动成功后，如果部署设备的IP地址为：`192.168.1.100`，可
 ### 📊 **服务管理命令**
 ```bash
 # 查看服务状态
-docker exec bonita s6-rc -a list
+docker exec bonita /command/s6-rc -a list
 
 # 重启特定服务
-docker exec bonita s6-rc -d change nginx
-docker exec bonita s6-rc -u change nginx
+docker exec bonita /command/s6-rc -d change bonita
+docker exec bonita/command/s6-rc -u change bonita
 
 # 停止/启动服务
-docker exec bonita s6-rc -d change celery
-docker exec bonita s6-rc -u change celery
+docker exec bonita /command/s6-rc -d change celery
+docker exec bonita /command/s6-rc -u change celery
 ```
 
 ### 🔍 **日志管理**
@@ -114,7 +114,7 @@ docker exec bonita s6-rc -u change celery
 docker logs bonita
 
 # 查看特定服务状态
-docker exec bonita s6-svstat /run/service/nginx
+docker exec bonita /command/s6-svstat /run/service/bonita
 ```
 
 ## 常见问题
