@@ -4,7 +4,7 @@
 
 ## 安装方法
 
-### 方法一：使用Docker安装
+### 使用Docker安装
 
 #### 基本运行
 ```bash
@@ -49,9 +49,9 @@ docker run -d \
 创建 `docker-compose.yml` 文件：
 
 ```yaml
-version: '3.8'
 services:
   bonita:
+    container_name: bonita
     image: suwmlee/bonita:latest
     ports:
       - "12346:12346"
@@ -63,14 +63,14 @@ services:
       - FIRST_SUPERUSER_EMAIL=admin@example.com
       - FIRST_SUPERUSER_PASSWORD=changepwd
     volumes:
-      - ./data:/app/backend/data
-      - ./media:/media
+      - <path/to/data>:/app/backend/data
+      - <path/to/media>:/media
     restart: unless-stopped
 ```
 
 然后运行：
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ## 环境变量说明
