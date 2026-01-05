@@ -24,9 +24,9 @@
   - 同步bonita到emby，默认只同步编号视频
 
   如果需要将就旧emby服务器记录同步到新的emby服务器
-  1. 将旧emby内容同步至bonita内
-  2. 扫描一次新emby服务器内的编号视频
-  3. 同步bonita到新emby服务器
+  1. 将旧emby观看记录同步至bonita内
+  2. 刮削一次新emby服务器内的编号视频
+  3. 同步bonita内观看记录到新emby服务器
 
 - 在`媒体项`内可以查看同步的记录
 
@@ -46,10 +46,15 @@ Bonita 允许所有元数据字段自定义
 
 必填字段：
 - number（编号）
+- actor (演员)
 - titiletitle（片名）
 - cover（封面海报）
 
 可以手动上传封面，上传封面不会替换原始cover字段值，只会更新关联图片
+
+### 管理transmission
+
+设置后，在删除、清理记录时，如果source内容被删除，会清理匹配的torrent
 
 ### 通知
 
