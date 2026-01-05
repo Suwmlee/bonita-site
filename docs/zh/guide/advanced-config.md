@@ -52,7 +52,7 @@ Bonita 允许所有元数据字段自定义
 
 可以手动上传封面，上传封面不会替换原始cover字段值，只会更新关联图片
 
-### 管理transmission
+## 管理transmission
 
 设置后，在删除、清理记录时，如果source内容被删除，会清理匹配的torrent
 
