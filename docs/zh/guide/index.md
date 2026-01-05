@@ -58,7 +58,6 @@ services:
     environment:
       - PUID=0
       - PGID=0
-      - MAX_CONCURRENCY=5
       - TZ=Asia/Shanghai
       - FIRST_SUPERUSER_EMAIL=admin@example.com
       - FIRST_SUPERUSER_PASSWORD=changepwd
@@ -85,6 +84,24 @@ docker compose up -d
 | `FIRST_SUPERUSER_PASSWORD` | -             | 初始管理员密码（仅初次创建时有效） |
 | `CELERY_BROKER_URL`        | -             | Celery外部broker地址（可选）       |
 | `CELERY_RESULT_BACKEND`    | -             | Celery外部结果存储地址（可选）     |
+| `MONITOR_USE_POLLING`      | False         | 推荐用于 SMB/CIFS 网络挂载文件夹   |
+| `MONITOR_POLLING_INTERVAL` | 30            | 轮询间隔（秒）                     |
+
+支持单独的 `config.yaml` 文件作为配置,默认放到 `/app/backend/data` 文件夹
+
+例如：
+```yaml
+# Bonita 自定义配置
+PROJECT_NAME: Bonita
+
+CELERY_BROKER_URL: redis://192.168.1.10:6379/0
+CELERY_RESULT_BACKEND: redis://192.168.1.10:6379/0
+
+MAX_CONCURRENT_TASKS: 5
+
+MONITOR_USE_POLLING: true
+MONITOR_POLLING_INTERVAL: 30
+```
 
 ## 启动 Bonita
 
